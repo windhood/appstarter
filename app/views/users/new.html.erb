@@ -1,0 +1,27 @@
+<%= simple_form_for @user, :wrapper => :inline do |f| %>
+  <% if f.error_notification %>
+    <div class="alert-message error fade in" data-alert="alert">
+      <a class="close" href="#">×</a>
+      <p><%= f.error_notification %></p>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Signup a new user" do %>
+    <%= f.input :email, :input_html => { :class => "span10" },
+                :autofocus => true, :placeholder => "Email",
+                :hint => "Your email. We'll keep it to ourselves." %>
+    
+    <%= f.input :password, :input_html => { :class => "span10" },
+                :placeholder => "Password",   
+                :hint => "At least 6 characters. Make it hard!" %>
+    <%= f.input :password_confirmation, :input_html => { :class => "span10" },
+                :placeholder => "Password",   
+                :hint => "Same as password" %>
+
+  <div class="actions">
+    <%= f.button :submit, :class => 'primary' %>
+    <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
+  </div>
+  <% end %>
+
+<% end %>

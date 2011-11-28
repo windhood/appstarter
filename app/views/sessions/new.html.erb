@@ -1,0 +1,32 @@
+<%= simple_form_for @user, :url => sessions_path, :wrapper => :inline do |f| %>
+  <% if f.error_notification %>
+    <div class="alert-message error fade in" data-alert="alert">
+      <a class="close" href="#">×</a>
+      <p><%= f.error_notification %></p>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Sign in to #{Settings.appname}" do %>
+    <%= f.input :email, :input_html => { :class => "span6" },
+                :autofocus => true, :placeholder => "Email",
+                :hint => "Your email." %>
+    
+    <%= f.input :password, :input_html => { :class => "span6" },
+                :placeholder => "Password",   
+                :hint => "Your password." %>
+   
+            
+    <%= f.input :name, :wrapper => :append, :label => false do %>
+      <%= f.input_field :remember_me, :as => :boolean %>
+      <%= content_tag :span, "&nbsp;Keep me logged in".html_safe %>
+    <% end %>
+    
+  <div class="actions">
+    <%= f.button :submit, "Sign In", :class => 'primary' %>
+  </div>
+  
+  <% end %>
+
+<% end %>
+
+<p><%= link_to "New to AppStarter? Join now!", signup_path %></p>

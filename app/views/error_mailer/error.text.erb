@@ -1,0 +1,18 @@
+Error at Pawdrop
+<%= @error.class.to_s %>
+-----------------------
+
+<% if @user -%>
+User: <%= @user.email %> <%= @user.id %>
+<% end %>
+
+IP: <%= @request.remote_ip %>
+Method: <%= @request.method %>
+UA: <%= @request.user_agent %>
+XHR: <%= @request.xhr? %>
+Path: <%= @request.fullpath %>
+
+-----------------------
+<%= @error.inspect.to_s %>
+-----------------------
+<%= @backtrace.to_s %>

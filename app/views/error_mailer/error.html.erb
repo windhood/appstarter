@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Error at Pawdrop</h1>
+    <p><strong><%= @error.class.to_s %></strong></p>
+
+    <table>
+      <% if @user -%>
+      <tr>
+        <td>User</td>
+        <td><%= @user.email %><br /><%= @user.id %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td>IP</td>
+        <td><%= @request.remote_ip %></td>
+      </tr>
+      <tr>
+        <td>Method</td>
+        <td><%= @request.method %></td>
+      </tr>
+      <tr>
+        <td>UA</td>
+        <td><%= @request.user_agent %></td>
+      </tr>
+      <tr>
+        <td>XHR</td>
+        <td><%= @request.xhr?.to_s %></td>
+      </tr>
+      <tr>
+        <td>Path</td>
+        <td><%= @request.fullpath %></td>
+      </tr>
+    </table>
+
+    <p><%= @error.inspect.to_s %></p>
+    <p><%= @backtrace.to_s %></p>
+  </body>
+</html>
