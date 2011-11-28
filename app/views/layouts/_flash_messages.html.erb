@@ -1,6 +1,21 @@
+<!--
+http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/stepping-out-with-bootstrap-from-twitter/#alerts_link
 <% flash && flash.each do |key, value| %>
   <div class="alert-message <%= key %> fade in">
     <a class="close" href="#">×</a>
     <p><%= value %></p>
+  </div>
+<% end %>
+-->
+<% if flash[:error] %>
+  <div class="alert-message error fade in">
+    <a class="close" href="#">×</a>
+    <p><strong>Woops! </strong><%= flash[:error] %></p>
+  </div>
+<% end %>
+<% if flash[:notice] %>
+  <div class="alert-message success fade in">
+    <a class="close" href="#">×</a>
+    <p><strong>Yes! </strong><%= flash[:notice] %></p>
   </div>
 <% end %>
