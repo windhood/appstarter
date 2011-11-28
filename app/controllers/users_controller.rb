@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         auto_login(@user, params[:user][:remember_me])
-        format.html { redirect_to root_url, success => "Signed up!" }
+        format.html { redirect_to root_url, :notice => "Signed up!" }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render :new }
