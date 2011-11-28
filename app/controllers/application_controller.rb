@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
     
     #rescue_from CanCan::AccessDenied, with: :render_unauthorized
-
+    #prepend_before_filter :api_login
     protect_from_forgery
 
     helper_method :logged_in?
