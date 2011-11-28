@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   end
 
   def contact
+    #layout nil
+    #render :layout => false 
   end
   
   def about

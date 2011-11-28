@@ -7,6 +7,7 @@ Appstarter::Application.routes.draw do
   resources :sessions
   
   get "about" => "pages#about", :as =>"about"
+  get "contact" => "pages#contact", :as =>"contact"
   #match '/about',   :to => 'pages#about'
   
 end
