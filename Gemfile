@@ -35,3 +35,6 @@ gem 'jquery-rails'
 gem 'sorcery'
 gem 'rails_config'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+#gem 'rmagick'# first sudo brew install imagemagick
+gem 'mini_magick', '3.2'
+gem 'carrierwave'
