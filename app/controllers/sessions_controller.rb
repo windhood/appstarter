@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = login(params[:email], params[:password], params[:remember_me])
+    user = login(params[:user][:email], params[:user][:password], params[:user][:remember_me])
     
     respond_to do |format|
       if user

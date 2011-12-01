@@ -1,13 +1,20 @@
 Appstarter::Application.routes.draw do
-  root :to => "pages#home"
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-  resources :users
-  resources :sessions
   
-  get "about" => "pages#about", :as =>"about"
+  delete "logout"  => "sessions#destroy",   as: "logout"
+  get "login"   => "sessions#new",          as: "login"
+  get "signup"  => "users#new",             as: "signup"
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  # static pages
+  get 'about' => "pages#about", as: :about
+  get 'tos' => "pages#tos", as: :tos
+  get 'privacy' => "pages#privacy", as: :privacy
+  get 'aup' => "pages#aup", as: :aup
+  get 'dmca' => "pages#dmca", as: :dmca
   get "contact" => "pages#contact", :as =>"contact"
   #match '/about',   :to => 'pages#about'
   
+  root :to => "pages#home"
 end

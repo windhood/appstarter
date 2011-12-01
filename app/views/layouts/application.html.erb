@@ -9,10 +9,7 @@
     <%= yield :breadcrumb %>
     <%= render :partial => "layouts/flash_messages" %>
     <%= yield %>
-    
-    <footer>
-      <p>&copy; Company 2011</p>
-    </footer>
+    <%= render partial: "shared/footer" %>
   </div>
   <%= javascript_include_tag "application" %>
 </body>

@@ -1,0 +1,61 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+header.master {
+  padding-top: 60px;
+}
+
+.topbar {
+  .brand {
+    /*font-family: 'Droid Serif', serif;*/
+    font-family: 'Tangerine', serif;
+      /*font-size: 48px;*/
+      text-shadow: 4px 4px 4px #aaa;
+  }
+  a .session {
+    img {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+      margin-right: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .username {
+      color: #BABABA;
+      cursor: pointer;
+      font-weight: normal;
+      display: inline-block;
+      max-width: 200px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  em {
+    font-style: normal;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+    
+}
+
+footer {
+  ul {
+    list-style: none;
+    font-size: 12px;
+
+    li {
+      display: inline;
+      
+      a,
+      a:visited {
+        color: #999;
+      }
+    }
+  }
+}
+  

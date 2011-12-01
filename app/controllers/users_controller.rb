@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
-        auto_login(@user, params[:user][:remember_me])
+        #Rails.logger.debug '11'
+        auto_login(@user)
         format.html { redirect_to root_url, :notice => "Signed up!" }
         format.json { render json: @user, status: :created, location: @user }
       else
