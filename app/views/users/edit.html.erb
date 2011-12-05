@@ -1,4 +1,5 @@
-<%= simple_form_for @user, :wrapper => :inline do |f| %>
+<%= simple_form_for @user, :wrapper => :stacked,
+                    :html => { :class => "form-stacked" } do |f| %>
   <% if f.error_notification %>
     <div class="alert-message error fade in" data-alert="alert">
       <a class="close" href="#">×</a>
@@ -6,18 +7,16 @@
     </div>
   <% end %>
 
-  <%= field_set_tag "Signup a new user" do %>
-    <%= f.input :email, :input_html => { :class => "span10" },
-                :autofocus => true, :placeholder => "Email",
-                :hint => "Your email. We'll keep it to ourselves." %>
-    
-    <%= f.input :password, :input_html => { :class => "span10" },
-                :placeholder => "Password",   
+  <%= field_set_tag "Change your password" do %>
+    <% f.with_options :input_html => {:class => "xxlarge"} do |opt| %>
+    <%= f.input :password, :input_html => { :class => "xxlarge" },
+                :placeholder => "Password", :autofocus => true,  
                 :hint => "At least 6 characters. Make it hard!" %>
-    <%= f.input :password_confirmation, :input_html => { :class => "span10" },
+    <%= f.input :password_confirmation, :input_html => { :class => "xxlarge" },
                 :placeholder => "Password",   
                 :hint => "Same as password" %>
     <% end %>
+  <% end %>
   <div class="actions">
     <%= f.button :submit, :class => 'primary' %>
     <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
@@ -25,3 +24,4 @@
   
 
 <% end %>
+

@@ -20,13 +20,10 @@
       <%= f.input_field :remember_me, :as => :boolean %>
       <%= content_tag :span, "&nbsp;Keep me logged in".html_safe %>
     <% end %>
-    
+  <% end %>  
   <div class="actions">
     <%= f.button :submit, "Sign In", :class => 'primary' %>
   </div>
-  
-  <% end %>
-
 <% end %>
 
 <p><%= link_to "New to AppStarter? Join now!", signup_path %></p>
