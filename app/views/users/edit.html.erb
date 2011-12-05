@@ -1,27 +1,33 @@
-<%= simple_form_for @user, :wrapper => :stacked,
-                    :html => { :class => "form-stacked" } do |f| %>
-  <% if f.error_notification %>
-    <div class="alert-message error fade in" data-alert="alert">
-      <a class="close" href="#">×</a>
-      <p><%= f.error_notification %></p>
-    </div>
-  <% end %>
-
-  <%= field_set_tag "Change your password" do %>
-    <% f.with_options :input_html => {:class => "xxlarge"} do |opt| %>
-    <%= f.input :password, :input_html => { :class => "xxlarge" },
-                :placeholder => "Password", :autofocus => true,  
-                :hint => "At least 6 characters. Make it hard!" %>
-    <%= f.input :password_confirmation, :input_html => { :class => "xxlarge" },
-                :placeholder => "Password",   
-                :hint => "Same as password" %>
-    <% end %>
-  <% end %>
-  <div class="actions">
-    <%= f.button :submit, :class => 'primary' %>
-    <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
+<ul data-tabs="tabs" class="tabs">
+  <li class="active"><a href="#home">Home</a></li>
+  <li><a href="#profile">Profile</a></li>
+  <li><a href="#change_password">Change Password</a></li>
+  <li><a href="#settings">Settings</a></li>
+  <li data-dropdown="dropdown" class="dropdown">
+    <a class="dropdown-toggle" href="#">Dropdown</a>
+    <ul class="dropdown-menu">
+      <li><a href="#fat">@fat</a></li>
+      <li><a href="#mdo">@mdo</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="tab-content" id="my-tab-content">
+  <div id="home" class="active tab-pane">
+    <p>My Dashboard</p>
   </div>
-  
-
-<% end %>
-
+  <div id="profile" class="tab-pane">
+    Profile
+  </div>
+  <div id="change_password" class="tab-pane">
+    <%= render partial: "change_password" %>
+  </div>
+  <div id="settings" class="tab-pane">
+    Settings
+  </div>
+  <div id="fat" class="tab-pane">
+    Fat
+  </div>
+  <div id="mdo" class="tab-pane">
+    mdo
+  </div>
+</div>
