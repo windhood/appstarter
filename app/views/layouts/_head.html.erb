@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title><%= page_title %></title>
+<title><%= content_for?(:title) ? yield(:title) : controller.controller_name.titleize + "-"+ controller.action_name.titleize %></title>
 <meta name="description" content="<%= Settings.tagline %>">
 <meta name="author" content="Wenhu Guan">
 

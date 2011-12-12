@@ -13,12 +13,12 @@ module ApplicationHelper
     end
   end
   
-  def page_title
-    content_for?(:title) ? yield(:title) : controller.controller_name.titleize + "|"+ controller.action_name.titleize
+  def title(page_title, show_title = true)
+    content_for(:title) { page_title.to_s }
+    @show_title = show_title
   end
-  
-  def title(page_title)
-    provide(:title, page_title)
-    page_title
+
+  def show_title?
+    @show_title
   end
 end

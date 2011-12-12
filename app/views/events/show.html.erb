@@ -1,0 +1,25 @@
+<% title "Course | #{@event.name}" %>
+<% content_for :breadcrumb do %>
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li><%= link_to "Courses", events_path %> <span class="divider">/</span></li>
+    <li class="active"><%= @event.name %></li>
+  </ul>
+<% end %>
+<h1><%= @event.name %></h1>
+<div class="content">
+  <h3>Event Number</h3>
+  <p><%= @event.number %></p>
+  <hr/>
+  <h3>Start Date & Time</h3>
+  <p><%= @event.start_datetime %></p>
+  <hr/>
+  <h3>End Date & Time</h3>
+  <p><%= @event.end_datetime %></p>
+  <hr/>
+  <h3>Detail</h3>
+  <p><%= @event.description %></p>
+</div>
+<div>
+  <%= link_to 'Signup', @event.signup_url, :class => 'btn primary' %>
+</div>
