@@ -1,0 +1,35 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag "jquery.fileupload-ui" %>
+  <%= stylesheet_link_tag "bootstrap-image-gallery.min.css" %>
+<% end %>
+
+<div id="fileupload">
+  <%= form_for @picture, :html => { :multipart => true } do |f| %>
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+      <br />
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_field :description %>
+      </div>
+      <br />
+      <div class="fileupload-buttonbar">
+          <label class="fileinput-button">
+              <span>Add files...</span>
+                <%= f.file_field :file %>
+          </label>
+          <button type="submit" class="start">Start upload</button>
+          <button type="reset" class="cancel">Cancel upload</button>
+          <button type="button" class="delete">Delete files</button>
+      </div>
+  <% end %>
+  <div class="fileupload-content">
+      <table class="files"></table>
+      <div class="fileupload-progressbar"></div>
+  </div>
+</div>
+
+<%= render :partial => "template-upload" %>
+<%= render :partial => "template-download" %>

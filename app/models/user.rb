@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  mount_uploader :avatar, AvatarUploader
+  #mount_uploader :avatar, AvatarUploader
   authenticates_with_sorcery!
   attr_accessor :remember_me
   
   attr_accessible :email, :password, :password_confirmation, 
                   :first_name, :last_name, :remember_me, 
-                  :username, :avatar, :avatar_cache, :remove_avatar
+                  :username
 
   validates_presence_of :password, :on => :create
   #validates_uniqueness_of :email
@@ -16,15 +16,6 @@ class User < ActiveRecord::Base
   validates_length_of :password, :minimum => 6, :message => "password must be at least 6 characters long", :if => :password
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   
-  #validates_presence_of :avatar
-  #validates_integrity_of :avatar
-  #validates_processing_of :avatar
-  
-  def default_avatar_url(size=96)
-    hash = Digest::MD5.hexdigest(self.email || self.name)
-    "http://robohash.org/#{hash}?size=#{size}x#{size}&gravatar=hashed"
-  end
-  
   def name
     if first_name.blank? && last_name.blank?
       nil
@@ -32,5 +23,4 @@ class User < ActiveRecord::Base
       "#{first_name} #{last_name}"
     end
   end
-  
 end

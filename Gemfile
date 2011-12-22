@@ -38,3 +38,4 @@ gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 #gem 'rmagick'# first sudo brew install imagemagick
 gem 'mini_magick', '3.2'
 gem 'carrierwave'
+gem 'best_in_place', :git => 'git://github.com/proton/best_in_place.git'

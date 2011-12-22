@@ -3,6 +3,7 @@ Appstarter::Application.routes.draw do
   get "login"   => "sessions#new",          as: "login"
   get "signup"  => "users#new",             as: "signup"
 
+  resources :pictures
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :events, only: [:index, :show]

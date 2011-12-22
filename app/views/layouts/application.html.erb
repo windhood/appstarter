@@ -11,6 +11,6 @@
     <%= yield %>
     <%= render partial: "shared/footer" %>
   </div>
-  <%= javascript_include_tag "application" %>
+  <%= render :partial => 'layouts/javascript' %>
 </body>
 </html>

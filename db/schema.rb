@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211073427) do
+ActiveRecord::Schema.define(:version => 20111130073909) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -21,25 +21,10 @@ ActiveRecord::Schema.define(:version => 20111211073427) do
     t.datetime "updated_at"
   end
 
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.string   "number"
-    t.string   "signup_url"
-    t.string   "source"
+  create_table "pictures", :force => true do |t|
+    t.string   "title"
     t.text     "description"
-    t.string   "start_date"
-    t.string   "start_time"
-    t.string   "end_date"
-    t.string   "end_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "searches", :force => true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "keyword"
-    t.boolean  "match_all"
+    t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20111211073427) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.string   "avatar"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
