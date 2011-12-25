@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20111130073909) do
     t.string   "title"
     t.text     "description"
     t.string   "file"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

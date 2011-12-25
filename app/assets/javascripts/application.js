@@ -6,16 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
-//= require best_in_place
-//= require jquery.iframe-transport
-//= require jquery.fileupload
-//= require jquery.fileupload-ui
-//= require shadowbox
-//= require pictures/customupload
-//= require pictures/form
 //= require twitter/bootstrap
-//= require_tree .
 $(function () {
   $('.tabs').tabs()
 })

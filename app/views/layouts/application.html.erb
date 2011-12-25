@@ -11,6 +11,7 @@
     <%= yield %>
     <%= render partial: "shared/footer" %>
   </div>
+  <%= yield :overlay %>
   <%= render :partial => 'layouts/javascript' %>
 </body>
 </html>
