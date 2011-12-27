@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
       "#{first_name} #{last_name}"
     end
   end
+  
+  def default_avatar_url(size=96)
+    hash = Digest::MD5.hexdigest(self.email || self.name)
+    "http://robohash.org/#{hash}?size=#{size}x#{size}&gravatar=hashed"
+  end
 end

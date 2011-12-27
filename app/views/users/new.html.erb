@@ -1,3 +1,4 @@
+<% title "Signup" %>
 <%= simple_form_for @user, :wrapper => :inline do |f| %>
   <% if f.error_notification %>
     <div class="alert-message error fade in" data-alert="alert">
@@ -19,7 +20,7 @@
                 :hint => "Same as password" %>
     <% end %>
   <div class="actions">
-    <%= f.button :submit, :class => 'primary' %>
+    <%= f.button :submit, "Signup", :class => 'primary' %>
     <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
   </div>
   
