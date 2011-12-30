@@ -14,7 +14,11 @@ Appstarter::Application.routes.draw do
   get 'aup' => "pages#aup", as: :aup
   get 'dmca' => "pages#dmca", as: :dmca
   get "contact" => "pages#contact", :as =>"contact"
-  #match '/about',   :to => 'pages#about'
+  
+  # settings page
+  get 'settings/account'
+  get 'settings/password'
+  get 'settings/profile'
   
   root :to => "pages#home"
 end
