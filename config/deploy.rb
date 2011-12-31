@@ -35,7 +35,7 @@ default_environment["RUBY_VERSION"] = "ruby-1.9.3-p0"
 
 default_run_options[:shell] = 'bash'
 
-after "deploy:update_code", "deploy:pipeline_precompile"
+load 'deploy/assets'
 
 namespace :deploy do
   desc "Deploy your application"
@@ -67,10 +67,6 @@ namespace :deploy do
   task :update_code, :except => { :no_release => true } do
     run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
     finalize_update
-  end
-  
-  task :pipeline_precompile do
-      run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
   
   desc "Update the database (overwritten to avoid symlink)"
