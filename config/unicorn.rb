@@ -24,7 +24,8 @@ if env == "production"
   working_directory "/home/deployer/apps/appstarter/current"
 
   # feel free to point this anywhere accessible on the filesystem
-  user 'deployer', 'admin'
+  # remove this otherwise we will get permission problem
+  # user 'deployer', 'admin'
   shared_path = "/home/deployer/apps/appstarter/shared"
 
   stderr_path "#{shared_path}/log/unicorn.stderr.log"

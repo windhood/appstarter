@@ -35,13 +35,15 @@ default_environment["RUBY_VERSION"] = "ruby-1.9.3-p0"
 
 default_run_options[:shell] = 'bash'
 
+after "deploy:update_code", "deploy:pipeline_precompile"
+
 namespace :deploy do
   desc "Deploy your application"
   task :default do
     update
     restart
   end
-
+  
   desc "Setup your git-based deployment app"
   task :setup, :except => { :no_release => true } do
     dirs = [deploy_to, shared_path]
@@ -66,7 +68,11 @@ namespace :deploy do
     run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
     finalize_update
   end
-
+  
+  task :pipeline_precompile do
+      run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+  end
+  
   desc "Update the database (overwritten to avoid symlink)"
   task :migrations do
     transaction do
@@ -97,7 +103,8 @@ namespace :deploy do
       run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
     end
   end
-
+  
+  
   desc "Zero-downtime restart of Unicorn"
   task :restart, :except => { :no_release => true } do
     run "kill -s USR2 `cat /tmp/unicorn.appstarter.pid`"
