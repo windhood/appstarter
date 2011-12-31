@@ -58,6 +58,8 @@ class ApplicationController < ActionController::Base
     end
 
     def error_mail e
+      Rails.logger.error "Exception #{e.class}: #{e.message}"
+      Rails.logger.error(e.backtrace.join("\n"))
       ErrorMailer.error(e, request, current_user).deliver if Rails.env.production?
     end
 
